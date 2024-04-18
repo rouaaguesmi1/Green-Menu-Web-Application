@@ -1,0 +1,23 @@
+{{ form_start(form) }}
+<div>
+	<div class="form-group fw-bold custom-select">
+		{{ form_label(form.restaurantid) }}
+		{{ form_widget(form.restaurantid, {'attr': {'class': 'form-control'}}) }}
+		<br>
+	</div>
+
+	<div class="form-group fw-bold x ">
+		{{ form_label(form.isoccupied) }}
+		<br><br><br>
+
+		{{ form_widget(form.isoccupied) }}
+
+
+		<br>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary ">Save</button>
+
+	</div>
+</div>
+{{ form_end(form) }}

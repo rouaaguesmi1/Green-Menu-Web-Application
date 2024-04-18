@@ -1,0 +1,16 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}New Table
+{% endblock %}
+{% block body %}
+	<div class="container ">
+		<br><br>
+
+		<h1>Add Table</h1>
+		<br>
+		{{ include('restauranttable/_form.html.twig') }}
+		<br><br><br>
+		<a href="{{ path('app_restauranttable_index') }}" class=" btn btn-dark ">
+			Back to List</a>
+	</div>
+{% endblock %}

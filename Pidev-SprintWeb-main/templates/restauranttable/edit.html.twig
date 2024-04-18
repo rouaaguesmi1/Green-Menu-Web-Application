@@ -1,0 +1,25 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Edit Table
+{% endblock %}
+
+{% block body %}
+	<div class="container ">
+		<br><br><br>
+
+		<h1>Edit Table</h1>
+
+		<br>
+
+		{{ include('restauranttable/_form.html.twig', {'button_label': 'Update'}) }}
+		<br>
+
+
+		{{ include('restauranttable/_delete_form.html.twig') }}
+		<br>
+
+		<a href="{{ path('app_restauranttable_index') }}" class=" btn btn-dark ">
+			Back to List</a>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}
+	Restaurant
+{% endblock %}
+
+{% block body %}
+
+	<br><br><br>
+	<h1>Restaurant</h1>
+	<br><br><br>
+
+	<img src="{{ asset('uploads/' ~ restaurant.imagepath) }}" alt="Restaurant Image">
+
+	<br><br><br>
+
+	<table class="table table-striped table-bordered table-hover ">
+		<tbody>
+			<tr>
+				<th>Restaurantid</th>
+				<td>{{ restaurant.restaurantid }}</td>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<td>{{ restaurant.name }}</td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td>{{ restaurant.address }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ restaurant.description }}</td>
+			</tr>
+			<tr>
+				<th>Imagepath</th>
+				<td>{{ restaurant.imagepath }}</td>
+				{# templates/restaurant/show.html.twig #}
+
+
+			</tr>
+
+		</tbody>
+	</table>
+
+	<br><br><br>
+	<div>
+		<a href="{{ path('app_restaurant_index') }}" class="btn btn-dark ">Back to list</a>
+		<a href="{{ path('app_restaurant_edit', {'restaurantid': restaurant.restaurantid}) }}" class="btn btn-outline-warning ml-2">
+			Edit</a>
+		<div style="display: inline-block; vertical-align: top;">
+			{{ include('restaurant/_delete_form.html.twig') }}
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'baseBack.html.twig' %}
+{% block title %}Restaurant index
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<br><br><br>
+		<h1>
+			List of Restaurants</h1>
+		<br><br><br>
+		<table class="table table-striped table-bordered table-hover ">
+			<thead>
+				<tr>
+					<th scope="col" class="fw-bold bg-dark text-light">Restaurant ID</th>
+					<th scope="col" class="fw-bold bg-dark text-light">Name</th>
+					<th scope="col" class="fw-bold bg-dark text-light">Address</th>
+					<th scope="col" class="fw-bold bg-dark text-light">Description</th>
+					<th scope="col" class="fw-bold bg-dark text-light">Image</th>
+					<th scope="col" class="fw-bold bg-dark text-light">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for restaurant in restaurants %}
+					<tr>
+						<td>{{ restaurant.restaurantid }}</td>
+						<td>{{ restaurant.name }}</td>
+						<td>{{ restaurant.address }}</td>
+						<td>{{ restaurant.description }}</td>
+						<td>
+							{# 							<img src="{{ asset(restaurant.imagepath) }}" alt="Image" style="max-width: 100px;">
+																																			 #}
+							<br>
+							{{ restaurant.imagepath }}</td>
+						<td class="actions">
+							<a href="{{ path('app_restaurant_show', {'restaurantid': restaurant.restaurantid}) }}" class="btn btn-info text-light ">Show</a><br><br>
+							<br>
+							<a href="{{ path('app_restaurant_edit', {'restaurantid': restaurant.restaurantid}) }}" class="btn btn-dark text-light">Edit</a><br>
+							<br>
+							<a href="{{ path('app_restaurant_delete', {'restaurantid': restaurant.restaurantid}) }}" class="btn btn-danger text-light">Delete</a><br>
+							<br>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6">No records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<br><br><br>
+		<a href="{{ path('app_restaurant_new') }}" class="btn btn-primary btn-lg btn-block  btn-lg text-light">Add</a>
+	</div>
+{% endblock %}

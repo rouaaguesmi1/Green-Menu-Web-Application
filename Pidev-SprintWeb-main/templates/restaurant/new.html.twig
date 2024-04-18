@@ -1,0 +1,20 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}New Restaurant
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<br><br>
+		{% verbatim %}{% endverbatim %}
+		<h1>Add Restaurant</h1>
+		<br>
+
+		{{ include('restaurant/_form.html.twig') }}
+		<br><br><br>
+
+		<a href="{{ path('app_restaurant_index') }}" class="btn btn-dark">Back to List</a>
+	</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{{ form_start(form) }}
+<div class="form-group fw-bold">
+	{{ form_label(form.name) }}
+	{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+	<br>
+</div>
+
+<div class="form-group fw-bold">
+	{{ form_label(form.address) }}
+	{{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+	<br>
+</div>
+
+<div class="form-group fw-bold">
+	{{ form_label(form.description) }}
+	{{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+	<br>
+</div>
+
+<!-- Image upload field -->
+<div class="form-group fw-bold">
+	<label for="image">Image</label>
+	{{ form_widget(form.imagepath, {'attr': {'class': 'form-control', 'onchange': 'previewImage(event)'}}) }}
+	{# {% if form.vars.errors['imagepath'] is defined %}
+				<div class="text-danger">
+					{{ form.vars.errors['imagepath'] }}
+				</div>
+			{% endif %} #}
+	<br>
+</div>
+
+<!-- Image preview -->
+<div class="form-group" id="imagePreview"></div>
+
+<div class="form-group">
+	<button type="submit" class="btn btn-primary ">Save</button>
+</div>
+{{ form_end(form) }}
+
+{# <script>
+	function previewImage(event) {
+var input = event.target;
+var reader = new FileReader();
+reader.onload = function () {
+var imgElement = document.createElement('img');
+imgElement.src = reader.result;
+imgElement.style.maxWidth = '200px'; // Adjust image size as needed
+document.getElementById('imagePreview').innerHTML = ''; // Clear previous preview
+document.getElementById('imagePreview').appendChild(imgElement);
+}
+reader.readAsDataURL(input.files[0]);
+}
+</script> #}

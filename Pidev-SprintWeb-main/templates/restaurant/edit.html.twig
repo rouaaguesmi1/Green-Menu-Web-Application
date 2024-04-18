@@ -1,0 +1,21 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}
+	Edit Restaurant
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		<br><br>
+
+		<h1>Edit Restaurant</h1>
+		<br>
+
+		{{ include('restaurant/_form.html.twig', {'button_label': 'Update'}) }}
+		<br><br><br>
+		{{ include('restaurant/_delete_form.html.twig') }}
+		<br><br><br>
+		<a href="{{ path('app_restaurant_index') }}" class="btn btn-dark">Back to List</a>
+		<br><br><br>
+	{% endblock %}
