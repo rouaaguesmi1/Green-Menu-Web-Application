@@ -1,11 +1,20 @@
-<!DOCTYPE html>
+{% extends 'baseBack.html.twig' %}
 
-<title>Reservation</title>
+{% block title %}
+	Reservation
+{% endblock %}
 
 {% block body %}
-	<h1>Reservation</h1>
 
-	<table class="table">
+<br><br><br>
+<h1>Reservation</h1>
+<br><br><br>
+
+
+{% block body %}
+	<h1></h1>
+
+	<table class="table table-striped table-bordered table-hover ">
 		<tbody>
 			<tr>
 				<th>Reservationid</th>
@@ -24,9 +33,15 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('app_reservation_index') }}">back to list</a>
+	<div>
+		<a href="{{ path('app_reservation_index') }}" class="btn btn-dark ">Back to list</a>
+		<a href="{{ path('app_reservation_edit', {'reservationid': reservation.reservationid}) }}" class="btn btn-outline-warning ml-2">
+			Edit</a>
+		<div style="display: inline-block; vertical-align: top;">
+			{{ include('reservation/_delete_form.html.twig') }}
+		</div>
+	</div>
 
-	<a href="{{ path('app_reservation_edit', {'reservationid': reservation.reservationid}) }}">edit</a>
 
-	{{ include('reservation/_delete_form.html.twig') }}
+	<a href="{{ path('app_reservation_index') }}" class="btn btn-dark">back to list</a>
 {% endblock %}

@@ -1,11 +1,21 @@
-<!DOCTYPE html>
+{% extends 'baseBack.html.twig' %}
 
-<title>New Reservation</title>
+{% block title %}New Reservation
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
-    <h1>Create new Reservation</h1>
+	<div class="container">
+		<br><br>
+		{% verbatim %}{% endverbatim %}
+		<h1>Add Reservation</h1>
+		<br>
 
-    {{ include('reservation/_form.html.twig') }}
+		{{ include('reservation/_form.html.twig') }}
 
-    <a href="{{ path('app_reservation_index') }}">back to list</a>
+		<br><br><br>
+
+		<a href="{{ path('app_reservation_index') }}" class="btn btn-dark">Back to List</a>
+	</div>
 {% endblock %}

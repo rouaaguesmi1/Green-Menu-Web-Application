@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+{% extends 'baseBack.html.twig' %}
 
-<title>Reservation index</title>
 
+{% block title %}Reservation index
+{% endblock %}
 {% block body %}
-	<h1>Reservation index</h1>
+	<br><br>
+	<h1>
+		List of Reservations</h1>
+	<br><br>
 
-	<table class="table">
+	<table class="table table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
-				<th>Reservationid</th>
-				<th>Datetime</th>
-				<th>Numberofpersons</th>
-				<th>actions</th>
+				<th scope="col" class="fw-bold bg-dark text-light">Reservationid</th>
+				<th scope="col" class="fw-bold bg-dark text-light">Datetime</th>
+				<th scope="col" class="fw-bold bg-dark text-light">Numberofpersons</th>
+				<th scope="col" class="fw-bold bg-dark text-light">
+					Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -21,9 +26,13 @@
 					<td>{{ reservation.datetime ? reservation.datetime|date('Y-m-d H:i:s') : 'N/A' }}
 					</td>
 					<td>{{ reservation.numberofpersons }}</td>
-					<td>
-						<a href="{{ path('app_reservation_show', {'reservationid': reservation.reservationid}) }}">show</a>
-						<a href="{{ path('app_reservation_edit', {'reservationid': reservation.reservationid}) }}">edit</a>
+					<td class="actions">
+						<a href="{{ path('app_reservation_show', {'reservationid': reservation.reservationid}) }}" class="btn btn-info text-light "><br>
+							Show</a>
+						<a href="{{ path('app_reservation_edit', {'reservationid': reservation.reservationid}) }}" class="btn btn-dark text-light">Edit</a>
+						<br>
+						<a href="{{ path('app_reservation_delete', {'reservationid': reservation.reservationid}) }}" class="btn btn-danger text-light">Delete</a><br>
+
 					</td>
 				</tr>
 			{% else %}
@@ -33,6 +42,8 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
-	<a href="{{ path('app_reservation_new') }}">Create new</a>
+	<br><br><br>
+	<a href="{{ path('app_reservation_new') }} " class=" btn btn-primary btn-lg btn-block btn-lg text-light">
+		Add
+	</a>
 {% endblock %}
